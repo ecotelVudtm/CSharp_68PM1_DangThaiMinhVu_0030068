@@ -20,8 +20,8 @@ namespace QL_SinhVIen.Views
             if (username == "Vudtm" && password == "123456")
             {
                 this.Hide();
-                StudentForm studentForm = new StudentForm();
-                studentForm.Show();
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
             }
             else
             {
