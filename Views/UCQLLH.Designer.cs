@@ -17,8 +17,8 @@ namespace QL_SinhVIen.Views
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.pnlGridContainer = new System.Windows.Forms.Panel();
@@ -40,6 +40,8 @@ namespace QL_SinhVIen.Views
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnViewStudents = new System.Windows.Forms.Button();
             this.tlpInputs = new System.Windows.Forms.TableLayoutPanel();
+            this.txtNotes = new System.Windows.Forms.TextBox();
+            this.lblClassNote = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblClassCode = new System.Windows.Forms.Label();
@@ -98,23 +100,23 @@ namespace QL_SinhVIen.Views
             this.dgvClassrooms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClassrooms.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvClassrooms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClassrooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClassrooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvClassrooms.ColumnHeadersHeight = 45;
             this.dgvClassrooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.colClassCode,
             this.colClassName,
             this.colNotes});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClassrooms.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClassrooms.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvClassrooms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvClassrooms.EnableHeadersVisualStyles = false;
             this.dgvClassrooms.Location = new System.Drawing.Point(0, 80);
@@ -127,6 +129,7 @@ namespace QL_SinhVIen.Views
             this.dgvClassrooms.Size = new System.Drawing.Size(860, 670);
             this.dgvClassrooms.TabIndex = 1;
             this.dgvClassrooms.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClassrooms_CellClick);
+            this.dgvClassrooms.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClassrooms_CellContentClick);
             // 
             // colId
             // 
@@ -177,7 +180,7 @@ namespace QL_SinhVIen.Views
             this.lblSearch.AutoSize = true;
             this.lblSearch.Location = new System.Drawing.Point(0, 10);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(193, 16);
+            this.lblSearch.Size = new System.Drawing.Size(218, 16);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Tìm kiếm (Mã ID / Mã lớp / Tên lớp):";
             // 
@@ -324,6 +327,8 @@ namespace QL_SinhVIen.Views
             // 
             this.tlpInputs.ColumnCount = 1;
             this.tlpInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpInputs.Controls.Add(this.txtNotes, 0, 7);
+            this.tlpInputs.Controls.Add(this.lblClassNote, 0, 6);
             this.tlpInputs.Controls.Add(this.lblId, 0, 0);
             this.tlpInputs.Controls.Add(this.txtId, 0, 1);
             this.tlpInputs.Controls.Add(this.lblClassCode, 0, 2);
@@ -333,15 +338,39 @@ namespace QL_SinhVIen.Views
             this.tlpInputs.Dock = System.Windows.Forms.DockStyle.Top;
             this.tlpInputs.Location = new System.Drawing.Point(0, 40);
             this.tlpInputs.Name = "tlpInputs";
-            this.tlpInputs.RowCount = 6;
+            this.tlpInputs.RowCount = 8;
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpInputs.Size = new System.Drawing.Size(370, 260);
             this.tlpInputs.TabIndex = 1;
+            // 
+            // txtNotes
+            // 
+            this.txtNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNotes.Location = new System.Drawing.Point(3, 197);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.Size = new System.Drawing.Size(364, 22);
+            this.txtNotes.TabIndex = 7;
+            // 
+            // lblClassNote
+            // 
+            this.lblClassNote.AutoSize = true;
+            this.lblClassNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassNote.Location = new System.Drawing.Point(3, 174);
+            this.lblClassNote.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
+            this.lblClassNote.Name = "lblClassNote";
+            this.lblClassNote.Size = new System.Drawing.Size(62, 16);
+            this.lblClassNote.TabIndex = 6;
+            this.lblClassNote.Text = "Ghi chú:";
+            this.lblClassNote.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblId
             // 
@@ -349,7 +378,7 @@ namespace QL_SinhVIen.Views
             this.lblId.Location = new System.Drawing.Point(3, 0);
             this.lblId.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(48, 16);
+            this.lblId.Size = new System.Drawing.Size(45, 16);
             this.lblId.TabIndex = 0;
             this.lblId.Text = "Mã ID:";
             this.lblId.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -468,5 +497,7 @@ namespace QL_SinhVIen.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn colClassName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNotes;
         private QL_SinhVIen.Common.PaginationControl pagination;
+        private System.Windows.Forms.TextBox txtNotes;
+        private System.Windows.Forms.Label lblClassNote;
     }
 }

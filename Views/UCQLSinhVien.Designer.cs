@@ -13,8 +13,6 @@ namespace QL_SinhVIen.Views
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
-
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -24,13 +22,6 @@ namespace QL_SinhVIen.Views
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.pnlGridContainer = new System.Windows.Forms.Panel();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStudentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -58,6 +49,13 @@ namespace QL_SinhVIen.Views
             this.lblNotes = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStudentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClassId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlMain.SuspendLayout();
             this.pnlGrid.SuspendLayout();
             this.pnlGridContainer.SuspendLayout();
@@ -73,10 +71,10 @@ namespace QL_SinhVIen.Views
             this.pnlMain.Controls.Add(this.pnlGrid);
             this.pnlMain.Controls.Add(this.pnlInput);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(15, 15);
+            this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pnlMain.Size = new System.Drawing.Size(1200, 770);
+            this.pnlMain.Size = new System.Drawing.Size(1230, 800);
             this.pnlMain.TabIndex = 0;
             // 
             // pnlGrid
@@ -87,7 +85,7 @@ namespace QL_SinhVIen.Views
             this.pnlGrid.Location = new System.Drawing.Point(370, 10);
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.pnlGrid.Size = new System.Drawing.Size(830, 760);
+            this.pnlGrid.Size = new System.Drawing.Size(860, 790);
             this.pnlGrid.TabIndex = 1;
             // 
             // pnlGridContainer
@@ -100,28 +98,28 @@ namespace QL_SinhVIen.Views
             this.pnlGridContainer.Location = new System.Drawing.Point(20, 0);
             this.pnlGridContainer.Name = "pnlGridContainer";
             this.pnlGridContainer.Padding = new System.Windows.Forms.Padding(1);
-            this.pnlGridContainer.Size = new System.Drawing.Size(810, 760);
+            this.pnlGridContainer.Size = new System.Drawing.Size(840, 790);
             this.pnlGridContainer.TabIndex = 0;
             // 
             // dgvStudents
             // 
             this.dgvStudents.AllowUserToAddRows = false;
             this.dgvStudents.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = QL_SinhVIen.Common.StyleHelper.ZebraColor;
-            this.dgvStudents.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.dgvStudents.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStudents.BackgroundColor = System.Drawing.Color.White;
             this.dgvStudents.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvStudents.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvStudents.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = QL_SinhVIen.Common.StyleHelper.PrimaryBlue;
-            dataGridViewCellStyle1.Font = QL_SinhVIen.Common.StyleHelper.ButtonFont;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = QL_SinhVIen.Common.StyleHelper.PrimaryBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudents.ColumnHeadersHeight = 45;
             this.dgvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
@@ -131,76 +129,28 @@ namespace QL_SinhVIen.Views
             this.colGender,
             this.colClassId,
             this.colNotes});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = QL_SinhVIen.Common.StyleHelper.DefaultFont;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = QL_SinhVIen.Common.StyleHelper.SelectionColor;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudents.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudents.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudents.EnableHeadersVisualStyles = false;
-            this.dgvStudents.GridColor = QL_SinhVIen.Common.StyleHelper.BorderColor;
+            this.dgvStudents.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvStudents.Location = new System.Drawing.Point(1, 81);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.ReadOnly = true;
             this.dgvStudents.RowHeadersVisible = false;
+            this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 40;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(808, 628);
+            this.dgvStudents.Size = new System.Drawing.Size(838, 658);
             this.dgvStudents.TabIndex = 1;
             this.dgvStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellClick);
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "ID";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Width = 50;
-            // 
-            // colStudentCode
-            // 
-            this.colStudentCode.DataPropertyName = "StudentCode";
-            this.colStudentCode.HeaderText = "MÃ SV";
-            this.colStudentCode.Name = "colStudentCode";
-            this.colStudentCode.ReadOnly = true;
-            // 
-            // colFullName
-            // 
-            this.colFullName.DataPropertyName = "FullName";
-            this.colFullName.HeaderText = "HỌ VÀ TÊN";
-            this.colFullName.Name = "colFullName";
-            this.colFullName.ReadOnly = true;
-            // 
-            // colBirthDate
-            // 
-            this.colBirthDate.DataPropertyName = "BirthDate";
-            this.colBirthDate.HeaderText = "NGÀY SINH";
-            this.colBirthDate.Name = "colBirthDate";
-            this.colBirthDate.ReadOnly = true;
-            // 
-            // colGender
-            // 
-            this.colGender.DataPropertyName = "Gender";
-            this.colGender.HeaderText = "GIỚI TÍNH";
-            this.colGender.Name = "colGender";
-            this.colGender.ReadOnly = true;
-            // 
-            // colClassId
-            // 
-            this.colClassId.DataPropertyName = "ClassId";
-            this.colClassId.HeaderText = "MÃ LỚP";
-            this.colClassId.Name = "colClassId";
-            this.colClassId.ReadOnly = true;
-            // 
-            // colNotes
-            // 
-            this.colNotes.DataPropertyName = "Notes";
-            this.colNotes.HeaderText = "GHI CHÚ";
-            this.colNotes.Name = "colNotes";
-            this.colNotes.ReadOnly = true;
+            this.dgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellContentClick);
             // 
             // pnlSearch
             // 
@@ -211,16 +161,16 @@ namespace QL_SinhVIen.Views
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSearch.Location = new System.Drawing.Point(1, 1);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(808, 80);
+            this.pnlSearch.Size = new System.Drawing.Size(838, 80);
             this.pnlSearch.TabIndex = 0;
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = QL_SinhVIen.Common.StyleHelper.LabelFont;
+            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblSearch.Location = new System.Drawing.Point(0, 10);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(158, 23);
+            this.lblSearch.Size = new System.Drawing.Size(166, 23);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Tìm kiếm sinh viên:";
             // 
@@ -228,16 +178,16 @@ namespace QL_SinhVIen.Views
             // 
             this.txtSearch.Location = new System.Drawing.Point(0, 35);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(400, 30);
+            this.txtSearch.Size = new System.Drawing.Size(400, 22);
             this.txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = QL_SinhVIen.Common.StyleHelper.SearchDark;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = QL_SinhVIen.Common.StyleHelper.ButtonFont;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Location = new System.Drawing.Point(410, 33);
             this.btnSearch.Name = "btnSearch";
@@ -253,16 +203,16 @@ namespace QL_SinhVIen.Views
             // 
             this.pagination.CurrentPage = 1;
             this.pagination.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pagination.Location = new System.Drawing.Point(1, 709);
+            this.pagination.Location = new System.Drawing.Point(1, 739);
             this.pagination.Name = "pagination";
-            this.pagination.Size = new System.Drawing.Size(808, 50);
+            this.pagination.Size = new System.Drawing.Size(838, 50);
             this.pagination.TabIndex = 2;
             this.pagination.TotalPages = 1;
             this.pagination.TotalRecords = 0;
             // 
             // pnlInput
             // 
-            this.pnlInput.BackColor = QL_SinhVIen.Common.StyleHelper.PanelColor;
+            this.pnlInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.pnlInput.Controls.Add(this.pnlButtons);
             this.pnlInput.Controls.Add(this.tlpInputs);
             this.pnlInput.Controls.Add(this.lblTitle);
@@ -270,7 +220,7 @@ namespace QL_SinhVIen.Views
             this.pnlInput.Location = new System.Drawing.Point(0, 10);
             this.pnlInput.Name = "pnlInput";
             this.pnlInput.Padding = new System.Windows.Forms.Padding(20);
-            this.pnlInput.Size = new System.Drawing.Size(370, 760);
+            this.pnlInput.Size = new System.Drawing.Size(370, 790);
             this.pnlInput.TabIndex = 0;
             // 
             // pnlButtons
@@ -281,7 +231,7 @@ namespace QL_SinhVIen.Views
             this.pnlButtons.Controls.Add(this.btnDelete);
             this.pnlButtons.Controls.Add(this.btnRefresh);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlButtons.Location = new System.Drawing.Point(20, 580);
+            this.pnlButtons.Location = new System.Drawing.Point(20, 552);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.pnlButtons.Size = new System.Drawing.Size(330, 150);
@@ -289,11 +239,11 @@ namespace QL_SinhVIen.Views
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = QL_SinhVIen.Common.StyleHelper.PrimaryBlue;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = QL_SinhVIen.Common.StyleHelper.ButtonFont;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(3, 23);
             this.btnAdd.Name = "btnAdd";
@@ -307,11 +257,11 @@ namespace QL_SinhVIen.Views
             // 
             // btnEdit
             // 
-            this.btnEdit.BackColor = QL_SinhVIen.Common.StyleHelper.SuccessGreen;
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = QL_SinhVIen.Common.StyleHelper.ButtonFont;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(164, 23);
             this.btnEdit.Name = "btnEdit";
@@ -325,11 +275,11 @@ namespace QL_SinhVIen.Views
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = QL_SinhVIen.Common.StyleHelper.DangerRed;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = QL_SinhVIen.Common.StyleHelper.ButtonFont;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(3, 69);
             this.btnDelete.Name = "btnDelete";
@@ -343,11 +293,11 @@ namespace QL_SinhVIen.Views
             // 
             // btnRefresh
             // 
-            this.btnRefresh.BackColor = QL_SinhVIen.Common.StyleHelper.SecondaryGrey;
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
             this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = QL_SinhVIen.Common.StyleHelper.ButtonFont;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Location = new System.Drawing.Point(164, 69);
             this.btnRefresh.Name = "btnRefresh";
@@ -397,13 +347,13 @@ namespace QL_SinhVIen.Views
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpInputs.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpInputs.Size = new System.Drawing.Size(330, 520);
+            this.tlpInputs.Size = new System.Drawing.Size(330, 492);
             this.tlpInputs.TabIndex = 1;
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Font = QL_SinhVIen.Common.StyleHelper.LabelFont;
+            this.lblId.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblId.Location = new System.Drawing.Point(3, 10);
             this.lblId.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.lblId.Name = "lblId";
@@ -421,17 +371,17 @@ namespace QL_SinhVIen.Views
             this.txtId.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(324, 30);
+            this.txtId.Size = new System.Drawing.Size(324, 22);
             this.txtId.TabIndex = 1;
             // 
             // lblStudentCode
             // 
             this.lblStudentCode.AutoSize = true;
-            this.lblStudentCode.Font = QL_SinhVIen.Common.StyleHelper.LabelFont;
-            this.lblStudentCode.Location = new System.Drawing.Point(3, 81);
+            this.lblStudentCode.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblStudentCode.Location = new System.Drawing.Point(3, 70);
             this.lblStudentCode.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.lblStudentCode.Name = "lblStudentCode";
-            this.lblStudentCode.Size = new System.Drawing.Size(113, 23);
+            this.lblStudentCode.Size = new System.Drawing.Size(115, 23);
             this.lblStudentCode.TabIndex = 2;
             this.lblStudentCode.Text = "Mã sinh viên:";
             this.lblStudentCode.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -441,20 +391,20 @@ namespace QL_SinhVIen.Views
             this.txtStudentCode.BackColor = System.Drawing.Color.White;
             this.txtStudentCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtStudentCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtStudentCode.Location = new System.Drawing.Point(3, 109);
+            this.txtStudentCode.Location = new System.Drawing.Point(3, 98);
             this.txtStudentCode.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.txtStudentCode.Name = "txtStudentCode";
-            this.txtStudentCode.Size = new System.Drawing.Size(324, 30);
+            this.txtStudentCode.Size = new System.Drawing.Size(324, 22);
             this.txtStudentCode.TabIndex = 3;
             // 
             // lblFullName
             // 
             this.lblFullName.AutoSize = true;
-            this.lblFullName.Font = QL_SinhVIen.Common.StyleHelper.LabelFont;
-            this.lblFullName.Location = new System.Drawing.Point(3, 152);
+            this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblFullName.Location = new System.Drawing.Point(3, 130);
             this.lblFullName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(91, 23);
+            this.lblFullName.Size = new System.Drawing.Size(92, 23);
             this.lblFullName.TabIndex = 4;
             this.lblFullName.Text = "Họ và tên:";
             this.lblFullName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -464,20 +414,20 @@ namespace QL_SinhVIen.Views
             this.txtFullName.BackColor = System.Drawing.Color.White;
             this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFullName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFullName.Location = new System.Drawing.Point(3, 180);
+            this.txtFullName.Location = new System.Drawing.Point(3, 158);
             this.txtFullName.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(324, 30);
+            this.txtFullName.Size = new System.Drawing.Size(324, 22);
             this.txtFullName.TabIndex = 5;
             // 
             // lblBirthDate
             // 
             this.lblBirthDate.AutoSize = true;
-            this.lblBirthDate.Font = QL_SinhVIen.Common.StyleHelper.LabelFont;
-            this.lblBirthDate.Location = new System.Drawing.Point(3, 223);
+            this.lblBirthDate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblBirthDate.Location = new System.Drawing.Point(3, 190);
             this.lblBirthDate.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.lblBirthDate.Name = "lblBirthDate";
-            this.lblBirthDate.Size = new System.Drawing.Size(91, 23);
+            this.lblBirthDate.Size = new System.Drawing.Size(94, 23);
             this.lblBirthDate.TabIndex = 6;
             this.lblBirthDate.Text = "Ngày sinh:";
             this.lblBirthDate.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -486,70 +436,70 @@ namespace QL_SinhVIen.Views
             // 
             this.dtpBirthDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBirthDate.Location = new System.Drawing.Point(3, 251);
+            this.dtpBirthDate.Location = new System.Drawing.Point(3, 218);
             this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.dtpBirthDate.Name = "dtpBirthDate";
-            this.dtpBirthDate.Size = new System.Drawing.Size(324, 30);
+            this.dtpBirthDate.Size = new System.Drawing.Size(324, 22);
             this.dtpBirthDate.TabIndex = 7;
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Font = QL_SinhVIen.Common.StyleHelper.LabelFont;
-            this.lblGender.Location = new System.Drawing.Point(3, 294);
+            this.lblGender.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblGender.Location = new System.Drawing.Point(3, 250);
             this.lblGender.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(82, 23);
+            this.lblGender.Size = new System.Drawing.Size(85, 23);
             this.lblGender.TabIndex = 8;
             this.lblGender.Text = "Giới tính:";
             this.lblGender.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // cmbGender
             // 
-            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGender.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Items.AddRange(new object[] {
             "Nam",
             "Nữ",
             "Khác"});
-            this.cmbGender.Location = new System.Drawing.Point(3, 322);
+            this.cmbGender.Location = new System.Drawing.Point(3, 278);
             this.cmbGender.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(324, 31);
+            this.cmbGender.Size = new System.Drawing.Size(324, 24);
             this.cmbGender.TabIndex = 9;
             // 
             // lblClass
             // 
             this.lblClass.AutoSize = true;
-            this.lblClass.Font = QL_SinhVIen.Common.StyleHelper.LabelFont;
-            this.lblClass.Location = new System.Drawing.Point(3, 366);
+            this.lblClass.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblClass.Location = new System.Drawing.Point(3, 312);
             this.lblClass.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(76, 23);
+            this.lblClass.Size = new System.Drawing.Size(79, 23);
             this.lblClass.TabIndex = 10;
             this.lblClass.Text = "Lớp học:";
             this.lblClass.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // cmbClass
             // 
-            this.cmbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Location = new System.Drawing.Point(3, 394);
+            this.cmbClass.Location = new System.Drawing.Point(3, 340);
             this.cmbClass.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.cmbClass.Name = "cmbClass";
-            this.cmbClass.Size = new System.Drawing.Size(324, 31);
+            this.cmbClass.Size = new System.Drawing.Size(324, 24);
             this.cmbClass.TabIndex = 11;
             // 
             // lblNotes
             // 
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Font = QL_SinhVIen.Common.StyleHelper.LabelFont;
-            this.lblNotes.Location = new System.Drawing.Point(3, 438);
+            this.lblNotes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblNotes.Location = new System.Drawing.Point(3, 374);
             this.lblNotes.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(74, 23);
+            this.lblNotes.Size = new System.Drawing.Size(75, 23);
             this.lblNotes.TabIndex = 12;
             this.lblNotes.Text = "Ghi chú:";
             this.lblNotes.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -559,7 +509,7 @@ namespace QL_SinhVIen.Views
             this.txtNotes.BackColor = System.Drawing.Color.White;
             this.txtNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNotes.Location = new System.Drawing.Point(3, 466);
+            this.txtNotes.Location = new System.Drawing.Point(3, 402);
             this.txtNotes.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
@@ -569,14 +519,70 @@ namespace QL_SinhVIen.Views
             // lblTitle
             // 
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = QL_SinhVIen.Common.StyleHelper.HeaderFont;
-            this.lblTitle.ForeColor = QL_SinhVIen.Common.StyleHelper.PrimaryBlue;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(330, 40);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "THÔNG TIN SINH VIÊN";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "ID";
+            this.colId.MinimumWidth = 6;
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            // 
+            // colStudentCode
+            // 
+            this.colStudentCode.DataPropertyName = "StudentCode";
+            this.colStudentCode.HeaderText = "MÃ SV";
+            this.colStudentCode.MinimumWidth = 6;
+            this.colStudentCode.Name = "colStudentCode";
+            this.colStudentCode.ReadOnly = true;
+            // 
+            // colFullName
+            // 
+            this.colFullName.DataPropertyName = "FullName";
+            this.colFullName.HeaderText = "HỌ VÀ TÊN";
+            this.colFullName.MinimumWidth = 6;
+            this.colFullName.Name = "colFullName";
+            this.colFullName.ReadOnly = true;
+            // 
+            // colBirthDate
+            // 
+            this.colBirthDate.DataPropertyName = "BirthDate";
+            this.colBirthDate.HeaderText = "NGÀY SINH";
+            this.colBirthDate.MinimumWidth = 6;
+            this.colBirthDate.Name = "colBirthDate";
+            this.colBirthDate.ReadOnly = true;
+            // 
+            // colGender
+            // 
+            this.colGender.DataPropertyName = "Gender";
+            this.colGender.HeaderText = "GIỚI TÍNH";
+            this.colGender.MinimumWidth = 6;
+            this.colGender.Name = "colGender";
+            this.colGender.ReadOnly = true;
+            // 
+            // colClassId
+            // 
+            this.colClassId.DataPropertyName = "ClassCode";
+            this.colClassId.HeaderText = "MÃ LỚP";
+            this.colClassId.MinimumWidth = 6;
+            this.colClassId.Name = "colClassId";
+            this.colClassId.ReadOnly = true;
+            // 
+            // colNotes
+            // 
+            this.colNotes.DataPropertyName = "Notes";
+            this.colNotes.HeaderText = "GHI CHÚ";
+            this.colNotes.MinimumWidth = 6;
+            this.colNotes.Name = "colNotes";
+            this.colNotes.ReadOnly = true;
             // 
             // UCQLSinhVien
             // 
@@ -599,8 +605,6 @@ namespace QL_SinhVIen.Views
             this.ResumeLayout(false);
 
         }
-
-        #endregion
 
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel pnlInput;
@@ -632,6 +636,7 @@ namespace QL_SinhVIen.Views
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dgvStudents;
+        private QL_SinhVIen.Common.PaginationControl pagination;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStudentCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFullName;
@@ -639,6 +644,5 @@ namespace QL_SinhVIen.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn colGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn colClassId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNotes;
-        private QL_SinhVIen.Common.PaginationControl pagination;
     }
 }
