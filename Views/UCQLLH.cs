@@ -319,7 +319,6 @@ namespace QL_SinhVIen.Views
 
         private void btnViewStudents_Click(object sender, EventArgs e)
         {
-            /* feat<lophoc>: view list sinhvien is out of scope
             if (string.IsNullOrEmpty(txtId.Text))
             {
                 MessageBox.Show("Vui lòng chọn một lớp học để xem danh sách sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -332,12 +331,11 @@ namespace QL_SinhVIen.Views
             {
                 modal.ShowDialog(this);
             }
-            */
         }
 
         private void dgvClassrooms_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra dòng click hợp lệfeat<sinhvien>: DataGridView CellClickEvent
+            // Kiểm tra dòng click hợp lệ
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvClassrooms.Rows[e.RowIndex];
