@@ -346,7 +346,6 @@ namespace QL_SinhVIen.Views
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            /* feat<sinhvien>: Delele is out of scope
             try
             {
                 // Kiểm tra xem đã chọn sinh viên chưa
@@ -386,7 +385,6 @@ namespace QL_SinhVIen.Views
             {
                 MessageBox.Show("Lỗi khi xóa sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
