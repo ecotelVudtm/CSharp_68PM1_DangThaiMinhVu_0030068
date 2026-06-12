@@ -294,7 +294,6 @@ namespace QL_SinhVIen.Views
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            /* feat<sinhvien>: Update is out of scope
             try
             {
                 // Kiểm tra xem người dùng đã chọn sinh viên nào dưới lưới chưa (ô txtId phải có giá trị)
@@ -343,7 +342,6 @@ namespace QL_SinhVIen.Views
             {
                 MessageBox.Show("Lỗi khi sửa thông tin: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
