@@ -9,8 +9,7 @@ namespace QL_SinhVIen.Views
     public partial class UCQLSinhVien : UserControl
     {
         QLSinhVienDataContext db = new QLSinhVienDataContext();
-        // feat<sinhvien>: SearchPaging
-        // private int? filterClassId = null;
+        private int? filterClassId = null;
 
         public UCQLSinhVien() : this(null)
         {
@@ -20,12 +19,10 @@ namespace QL_SinhVIen.Views
         {
             InitializeComponent();
             this.Padding = new Padding(15);
-            // feat<sinhvien>: SearchPaging
-            // this.filterClassId = classId;
+            this.filterClassId = classId;
 
-            // pagination.PageChanged += Pagination_PageChanged;
+            pagination.PageChanged += Pagination_PageChanged;
 
-            /*
             if (classId != null)
             {
                 var cls = db.Classrooms.SingleOrDefault(c => c.Id == classId);
@@ -34,7 +31,6 @@ namespace QL_SinhVIen.Views
                     txtSearch.Text = cls.ClassCode;
                 }
             }
-            */
 
             LoadData();
             LoadClassroomsToComboBox();
@@ -61,15 +57,13 @@ namespace QL_SinhVIen.Views
             {
                 dgvStudents.AutoGenerateColumns = false;
 
-                // feat<sinhvien>: SearchPaging
-                /*
                 // Lấy thông tin tìm kiếm và phân trang
                 string keyword = txtSearch.Text.Trim().ToLower();
                 int pageSize = 10;
                 int currentPage = pagination.CurrentPage;
 
                 // Base query: chỉ lấy sinh viên chưa bị xóa mềm
-                var query = db.Students.Where(s => s.IsDelete == false).OrderByDescending(s => s.Id);
+                IQueryable<Student> query = db.Students.Where(s => s.IsDelete == false);
 
                 // Áp dụng bộ lọc lớp học hoặc tìm kiếm
                 if (filterClassId != null)
@@ -109,21 +103,7 @@ namespace QL_SinhVIen.Views
                                            s.Gender,
                                            s.Notes,
                                            ClassCode = s.Classroom != null ? s.Classroom.ClassCode : "Chưa xếp lớp"
-                                       });
-                */
-
-                // Chỉ hiển thị danh sách sinh viên ban đầu
-                var studentList = db.Students
-                                     .Select(s => new
-                                     {
-                                         s.Id,
-                                         s.StudentCode,
-                                         s.FullName,
-                                         s.BirthDate,
-                                         s.Gender,
-                                         s.Notes,
-                                         ClassCode = s.Classroom != null ? s.Classroom.ClassCode : "Chưa xếp lớp"
-                                     }).ToList();
+                                       }).ToList();
 
                 // Gán dữ liệu vào lưới
                 dgvStudents.DataSource = studentList;
@@ -134,13 +114,10 @@ namespace QL_SinhVIen.Views
             }
         }
 
-        // feat<sinhvien>: SearchPaging
-        /*
         private void Pagination_PageChanged(object sender, EventArgs e)
         {
             LoadData();
         }
-        */
 
         // Hàm lấy danh sách lớp học đổ vào ComboBox cmbClass
         private void LoadClassroomsToComboBox()
@@ -389,33 +366,27 @@ namespace QL_SinhVIen.Views
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            /* feat<sinhvien>: SearchPaging is out of scope
             filterClassId = null;
             // Gọi lại hàm xóa trắng dữ liệu đã viết
             ClearInputs();
 
             // Tải lại lưới dữ liệu phòng trường hợp DB có thay đổi
             LoadData();
-            */
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            /* feat<sinhvien>: SearchPaging is out of scope
             filterClassId = null;
             pagination.CurrentPage = 1; // Reset về trang 1 khi search
             LoadData();
-            */
         }
 
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
-            /* feat<sinhvien>: SearchPaging is out of scope
             txtSearch.Clear();
             filterClassId = null;
             pagination.CurrentPage = 1;
             LoadData();
-            */
         }
 
         private void dgvStudents_CellClick(object sender, DataGridViewCellEventArgs e)
