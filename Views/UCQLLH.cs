@@ -139,7 +139,6 @@ namespace QL_SinhVIen.Views
         // --- Business Click Event Handlers ---
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            /* feat<lophoc>: CRUD lophoc is out of scope
             try
             {
                 //Kiểm tra ràng buộc dữ liệu đầu vào (Validation)
@@ -182,12 +181,10 @@ namespace QL_SinhVIen.Views
                 // Bắt các lỗi như trùng Mã lớp hoặc lỗi kết nối
                 MessageBox.Show("Lỗi khi thêm lớp học: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            /* feat<lophoc>: CRUD lophoc is out of scope
             try
             {
                 // Kiểm tra xem đã chọn lớp học cần sửa chưa
@@ -223,12 +220,10 @@ namespace QL_SinhVIen.Views
             {
                 MessageBox.Show("Lỗi khi sửa lớp học: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            /* feat<lophoc>: CRUD lophoc is out of scope
             try
             {
                 if (string.IsNullOrEmpty(txtId.Text))
@@ -301,32 +296,25 @@ namespace QL_SinhVIen.Views
             {
                 MessageBox.Show("Lỗi khi xóa lớp học: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            /* feat<lophoc>: CRUD lophoc is out of scope
             ClearInputs();
             LoadData();
-            */
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            /* feat<lophoc>: CRUD lophoc is out of scope
             pagination.CurrentPage = 1; // Reset về trang 1 khi search
             LoadData();
-            */
         }
 
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
-            /* feat<lophoc>: CRUD lophoc is out of scope
             txtSearch.Clear();
             pagination.CurrentPage = 1;
             LoadData();
-            */
         }
 
         private void btnViewStudents_Click(object sender, EventArgs e)
@@ -349,7 +337,6 @@ namespace QL_SinhVIen.Views
 
         private void dgvClassrooms_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            /* feat<lophoc>: CRUD lophoc is out of scope
             // Kiểm tra dòng click hợp lệfeat<sinhvien>: DataGridView CellClickEvent
             if (e.RowIndex >= 0)
             {
@@ -361,7 +348,6 @@ namespace QL_SinhVIen.Views
                 txtClassName.Text = row.Cells[2].Value?.ToString();
                 txtNotes.Text = row.Cells[3].Value?.ToString();
             }
-            */
         }
 
         private void dgvClassrooms_CellContentClick(object sender, DataGridViewCellEventArgs e)
