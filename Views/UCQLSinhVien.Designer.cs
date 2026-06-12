@@ -18,6 +18,7 @@ namespace QL_SinhVIen.Views
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnClearSearch = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.pnlGridContainer = new System.Windows.Forms.Panel();
@@ -65,6 +66,9 @@ namespace QL_SinhVIen.Views
             this.pnlButtons.SuspendLayout();
             this.tlpInputs.SuspendLayout();
             this.SuspendLayout();
+            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.Padding = new System.Windows.Forms.Padding(15);
             // 
             // pnlMain
             // 
@@ -157,6 +161,7 @@ namespace QL_SinhVIen.Views
             this.pnlSearch.BackColor = System.Drawing.Color.Transparent;
             this.pnlSearch.Controls.Add(this.lblSearch);
             this.pnlSearch.Controls.Add(this.txtSearch);
+            this.pnlSearch.Controls.Add(this.btnClearSearch);
             this.pnlSearch.Controls.Add(this.btnSearch);
             this.pnlSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSearch.Location = new System.Drawing.Point(1, 1);
@@ -178,8 +183,24 @@ namespace QL_SinhVIen.Views
             // 
             this.txtSearch.Location = new System.Drawing.Point(0, 35);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(400, 22);
+            this.txtSearch.Size = new System.Drawing.Size(370, 22);
             this.txtSearch.TabIndex = 1;
+            // 
+            // btnClearSearch
+            // 
+            this.btnClearSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnClearSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearSearch.FlatAppearance.BorderSize = 0;
+            this.btnClearSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnClearSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.btnClearSearch.Location = new System.Drawing.Point(375, 34);
+            this.btnClearSearch.Name = "btnClearSearch";
+            this.btnClearSearch.Size = new System.Drawing.Size(25, 24);
+            this.btnClearSearch.TabIndex = 3;
+            this.btnClearSearch.Text = "X";
+            this.btnClearSearch.UseVisualStyleBackColor = false;
+            this.btnClearSearch.Click += new System.EventHandler(this.btnClearSearch_Click);
             // 
             // btnSearch
             // 
@@ -591,6 +612,7 @@ namespace QL_SinhVIen.Views
             this.Controls.Add(this.pnlMain);
             this.Name = "UCQLSinhVien";
             this.Size = new System.Drawing.Size(1230, 800);
+            this.Padding = new System.Windows.Forms.Padding(15);
             this.pnlMain.ResumeLayout(false);
             this.pnlGrid.ResumeLayout(false);
             this.pnlGridContainer.ResumeLayout(false);
@@ -644,5 +666,6 @@ namespace QL_SinhVIen.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn colGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn colClassId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNotes;
+        private System.Windows.Forms.Button btnClearSearch;
     }
 }

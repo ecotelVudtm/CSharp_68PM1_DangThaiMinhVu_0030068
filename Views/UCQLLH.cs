@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,8 +12,13 @@ namespace QL_SinhVIen.Views
         public UCQLLH()
         {
             InitializeComponent();
+            pagination.PageChanged += Pagination_PageChanged;
             LoadData();
-            ApplyStyles();
+        }
+
+        private void Pagination_PageChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void ClearInputs()
@@ -29,129 +34,115 @@ namespace QL_SinhVIen.Views
 
         private void LoadData()
         {
-            // Lấy danh sách lớp học từ CSDL và đổ vào DataGridView
-            dgvClassrooms.DataSource = db.Classrooms.ToList();
+            try
+            {
+                dgvClassrooms.AutoGenerateColumns = false;
+
+                string keyword = txtSearch.Text.Trim().ToLower();
+                int pageSize = 10;
+                int currentPage = pagination.CurrentPage;
+
+                var query = db.Classrooms.Where(c => c.IsDelete == false);
+
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    query = query.Where(c => c.ClassCode.ToLower().Contains(keyword) || 
+                                             c.ClassName.ToLower().Contains(keyword));
+                }
+
+                int totalRecords = query.Count();
+                int totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
+                if (totalPages == 0) totalPages = 1;
+
+                if (currentPage > totalPages)
+                {
+                    currentPage = totalPages;
+                    pagination.CurrentPage = currentPage;
+                }
+
+                pagination.TotalRecords = totalRecords;
+                pagination.TotalPages = totalPages;
+
+                var classroomList = query.OrderByDescending(c => c.Id)
+                                         .Skip((currentPage - 1) * pageSize)
+                                         .Take(pageSize)
+                                         .ToList();
+
+                dgvClassrooms.DataSource = classroomList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách lớp học: " + ex.Message);
+            }
         }
 
-        private void ApplyStyles()
-        {
-            this.Font = StyleHelper.DefaultFont;
-            this.BackColor = StyleHelper.BackgroundColor;
-            this.Padding = new Padding(15);
-
-            pnlMain.Padding = new Padding(0, 10, 0, 0);
-            pnlGrid.Padding = new Padding(20, 0, 0, 0);
-            pnlGridContainer.BackColor = Color.White;
-            pnlGridContainer.Padding = new Padding(1);
-
-            lblSearch.Font = StyleHelper.LabelFont;
-            btnSearch.BackColor = StyleHelper.SearchDark;
-            btnSearch.Font = StyleHelper.ButtonFont;
-
-            pnlInput.BackColor = StyleHelper.PanelColor;
-            pnlInput.Padding = new Padding(20);
-            pnlButtons.Padding = new Padding(0, 20, 0, 0);
-
-            btnAdd.BackColor = StyleHelper.PrimaryBlue;
-            btnAdd.Font = StyleHelper.ButtonFont;
-            btnEdit.BackColor = StyleHelper.SuccessGreen;
-            btnEdit.Font = StyleHelper.ButtonFont;
-            btnDelete.BackColor = StyleHelper.DangerRed;
-            btnDelete.Font = StyleHelper.ButtonFont;
-            btnRefresh.BackColor = StyleHelper.SecondaryGrey;
-            btnRefresh.Font = StyleHelper.ButtonFont;
-            
-            btnViewStudents.BackColor = StyleHelper.PrimaryBlue;
-            btnViewStudents.Font = StyleHelper.ButtonFont;
-
-            tlpInputs.Padding = new Padding(0, 10, 0, 0);
-
-            lblId.Font = StyleHelper.LabelFont;
-            txtId.BackColor = Color.FromArgb(245, 245, 245);
-
-            lblClassCode.Font = StyleHelper.LabelFont;
-            txtClassCode.BackColor = Color.White;
-
-            lblClassName.Font = StyleHelper.LabelFont;
-            txtClassName.BackColor = Color.White;
-
-            lblTitle.Font = StyleHelper.HeaderFont;
-            lblTitle.ForeColor = StyleHelper.PrimaryBlue;
-
-            dgvClassrooms.AlternatingRowsDefaultCellStyle.BackColor = StyleHelper.ZebraColor;
-            dgvClassrooms.ColumnHeadersDefaultCellStyle.BackColor = StyleHelper.PrimaryBlue;
-            dgvClassrooms.ColumnHeadersDefaultCellStyle.Font = StyleHelper.ButtonFont;
-            dgvClassrooms.DefaultCellStyle.SelectionBackColor = StyleHelper.SelectionColor;
-            dgvClassrooms.GridColor = StyleHelper.BorderColor;
-        }
-
-        // --- Event Handlers for hover effects ---
         private void btnAdd_MouseEnter(object sender, EventArgs e)
         {
-            btnAdd.BackColor = StyleHelper.PrimaryBlueHover;
+            btnAdd.BackColor = Color.FromArgb(21, 101, 192);
         }
 
         private void btnAdd_MouseLeave(object sender, EventArgs e)
         {
-            btnAdd.BackColor = StyleHelper.PrimaryBlue;
+            btnAdd.BackColor = Color.FromArgb(25, 118, 210);
         }
 
         private void btnEdit_MouseEnter(object sender, EventArgs e)
         {
-            btnEdit.BackColor = StyleHelper.SuccessGreenHover;
+            btnEdit.BackColor = Color.FromArgb(27, 94, 32);
         }
 
         private void btnEdit_MouseLeave(object sender, EventArgs e)
         {
-            btnEdit.BackColor = StyleHelper.SuccessGreen;
+            btnEdit.BackColor = Color.FromArgb(46, 125, 50);
         }
 
         private void btnDelete_MouseEnter(object sender, EventArgs e)
         {
-            btnDelete.BackColor = StyleHelper.DangerRedHover;
+            btnDelete.BackColor = Color.FromArgb(198, 40, 40);
         }
 
         private void btnDelete_MouseLeave(object sender, EventArgs e)
         {
-            btnDelete.BackColor = StyleHelper.DangerRed;
+            btnDelete.BackColor = Color.FromArgb(211, 47, 47);
         }
 
         private void btnRefresh_MouseEnter(object sender, EventArgs e)
         {
-            btnRefresh.BackColor = StyleHelper.SecondaryGreyHover;
+            btnRefresh.BackColor = Color.FromArgb(97, 97, 97);
         }
 
         private void btnRefresh_MouseLeave(object sender, EventArgs e)
         {
-            btnRefresh.BackColor = StyleHelper.SecondaryGrey;
+            btnRefresh.BackColor = Color.FromArgb(117, 117, 117);
         }
 
         private void btnSearch_MouseEnter(object sender, EventArgs e)
         {
-            btnSearch.BackColor = StyleHelper.SearchDarkHover;
+            btnSearch.BackColor = Color.FromArgb(38, 50, 56);
         }
 
         private void btnSearch_MouseLeave(object sender, EventArgs e)
         {
-            btnSearch.BackColor = StyleHelper.SearchDark;
+            btnSearch.BackColor = Color.FromArgb(55, 71, 79);
         }
 
         private void btnViewStudents_MouseEnter(object sender, EventArgs e)
         {
-            btnViewStudents.BackColor = StyleHelper.PrimaryBlueHover;
+            btnViewStudents.BackColor = Color.FromArgb(21, 101, 192);
         }
 
         private void btnViewStudents_MouseLeave(object sender, EventArgs e)
         {
-            btnViewStudents.BackColor = StyleHelper.PrimaryBlue;
+            btnViewStudents.BackColor = Color.FromArgb(25, 118, 210);
         }
 
         // --- Business Click Event Handlers ---
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            /* feat<lophoc>: CRUD lophoc is out of scope
             try
             {
-                // 1. Kiểm tra ràng buộc dữ liệu đầu vào (Validation)
+                //Kiểm tra ràng buộc dữ liệu đầu vào (Validation)
                 if (string.IsNullOrEmpty(txtClassCode.Text.Trim()))
                 {
                     MessageBox.Show("Vui lòng nhập Mã lớp học!");
@@ -166,21 +157,21 @@ namespace QL_SinhVIen.Views
                     return;
                 }
 
-                // 2. Khởi tạo một đối tượng Classroom mới từ thực thể LINQ
+                //Khởi tạo một đối tượng Classroom mới từ thực thể LINQ
                 Classroom newClass = new Classroom();
 
-                // 3. Ánh xạ dữ liệu từ giao diện vào đối tượng
+                //Ánh xạ dữ liệu từ giao diện vào đối tượng
                 newClass.ClassCode = txtClassCode.Text.Trim();
                 newClass.ClassName = txtClassName.Text.Trim();
                 newClass.Notes = txtNotes.Text.Trim();
 
-                // 4. Đưa đối tượng vào hàng đợi chuẩn bị thêm của LINQ to SQL
+                // Đưa đối tượng vào hàng đợi chuẩn bị thêm của LINQ to SQL
                 db.Classrooms.InsertOnSubmit(newClass);
 
-                // 5. Xác nhận cập nhật thay đổi xuống Database thực tế
+                // Xác nhận cập nhật thay đổi xuống Database thực tế
                 db.SubmitChanges();
 
-                // 6. Thông báo thành công, tải lại lưới dữ liệu và xóa trắng ô nhập liệu
+                // Thông báo thành công, tải lại lưới dữ liệu và xóa trắng ô nhập liệu
                 MessageBox.Show("Thêm mới lớp học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 LoadData();     // Làm mới GridView lớp học
@@ -191,13 +182,15 @@ namespace QL_SinhVIen.Views
                 // Bắt các lỗi như trùng Mã lớp hoặc lỗi kết nối
                 MessageBox.Show("Lỗi khi thêm lớp học: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            */
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            /* feat<lophoc>: CRUD lophoc is out of scope
             try
             {
-                // 1. Kiểm tra xem đã chọn lớp học cần sửa chưa
+                // Kiểm tra xem đã chọn lớp học cần sửa chưa
                 if (string.IsNullOrEmpty(txtId.Text))
                 {
                     MessageBox.Show("Vui lòng chọn một lớp học từ danh sách để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -206,22 +199,22 @@ namespace QL_SinhVIen.Views
 
                 int classroomId = int.Parse(txtId.Text);
 
-                // 2. Tìm lớp học trong DB theo Id
+                // Tìm lớp học trong DB theo Id
                 Classroom editClass = db.Classrooms.SingleOrDefault(c => c.Id == classroomId);
 
                 if (editClass != null)
                 {
-                    // 3. Cập nhật thông tin mới
+                    // Cập nhật thông tin mới
                     editClass.ClassCode = txtClassCode.Text.Trim();
                     editClass.ClassName = txtClassName.Text.Trim();
                     editClass.Notes = txtNotes.Text.Trim();
 
-                    // 4. Lưu thay đổi xuống DB
+                    // Lưu thay đổi xuống DB
                     db.SubmitChanges();
 
                     MessageBox.Show("Cập nhật thông tin lớp học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // 5. Tải lại lưới và xóa trắng ô nhập
+                    // Tải lại lưới và xóa trắng ô nhập
                     LoadData();
                     ClearInputs();
                 }
@@ -230,10 +223,12 @@ namespace QL_SinhVIen.Views
             {
                 MessageBox.Show("Lỗi khi sửa lớp học: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            */
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            /* feat<lophoc>: CRUD lophoc is out of scope
             try
             {
                 if (string.IsNullOrEmpty(txtId.Text))
@@ -242,61 +237,120 @@ namespace QL_SinhVIen.Views
                     return;
                 }
 
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa lớp học này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                int classroomId = int.Parse(txtId.Text);
 
-                if (result == DialogResult.Yes)
+                //Kiểm tra xem lớp học có sinh viên không
+                int activeStudentsCount = db.Students.Count(s => s.ClassId == classroomId && s.IsDelete == false);
+
+                if (activeStudentsCount > 0)
                 {
-                    int classroomId = int.Parse(txtId.Text);
+                    // Lớp học có sinh viên -> kiểm tra xem có lớp học nào khác chưa bị xóa không
+                    int otherActiveClassesCount = db.Classrooms.Count(c => c.Id != classroomId && c.IsDelete == false);
 
-                    // Tìm lớp cần xóa
-                    Classroom deleteClass = db.Classrooms.SingleOrDefault(c => c.Id == classroomId);
-
-                    if (deleteClass != null)
+                    if (otherActiveClassesCount == 0)
                     {
-                        // Xóa lớp khỏi hàng đợi
-                        db.Classrooms.DeleteOnSubmit(deleteClass);
+                        MessageBox.Show("Lớp học này đang có sinh viên, và không còn lớp học nào khác trong hệ thống để chuyển sinh viên sang. Không thể xóa lớp học này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
-                        // Đồng bộ xuống DB
-                        db.SubmitChanges();
+                    // Mở dialog hỏi xác nhận
+                    DialogResult confirmReassign = MessageBox.Show($"Lớp học đang có {activeStudentsCount} sinh viên hoạt động. Bạn có muốn tiếp tục xóa không? Nếu tiếp tục, bạn bắt buộc phải chuyển sinh viên sang lớp học khác.", "Xác nhận chuyển lớp & Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        MessageBox.Show("Xóa lớp học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (confirmReassign == DialogResult.Yes)
+                    {
+                        // Lấy ClassCode của lớp chuẩn bị xóa
+                        Classroom deleteClass = db.Classrooms.SingleOrDefault(c => c.Id == classroomId);
+                        string classCode = deleteClass != null ? deleteClass.ClassCode : "";
 
-                        LoadData();
-                        ClearInputs();
+                        // Mở modal ReassignStudentsForm
+                        using (ReassignStudentsForm modal = new ReassignStudentsForm(classroomId, classCode))
+                        {
+                            if (modal.ShowDialog(this) == DialogResult.OK)
+                            {
+                                // Refresh Data Context để tải lại dữ liệu mới nhất
+                                db = new QLSinhVienDataContext();
+                                LoadData();
+                                ClearInputs();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    // Lớp học trống -> Tiến hành xóa mềm bình thường
+                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa lớp học này không?", "Xác nhận xóa lớp trống", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        Classroom deleteClass = db.Classrooms.SingleOrDefault(c => c.Id == classroomId);
+
+                        if (deleteClass != null)
+                        {
+                            deleteClass.IsDelete = true;
+                            db.SubmitChanges();
+
+                            MessageBox.Show("Xóa lớp học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            LoadData();
+                            ClearInputs();
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Bắt các lỗi ràng buộc dữ liệu (Ví dụ: Lớp đang có sinh viên thì không cho xóa)
-                MessageBox.Show("Không thể xóa lớp học này! Có thể lớp đang chứa sinh viên. Chi tiết lỗi: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi xóa lớp học: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            */
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            /* feat<lophoc>: CRUD lophoc is out of scope
             ClearInputs();
             LoadData();
+            */
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            // Empty click handler
+            /* feat<lophoc>: CRUD lophoc is out of scope
+            pagination.CurrentPage = 1; // Reset về trang 1 khi search
+            LoadData();
+            */
+        }
+
+        private void btnClearSearch_Click(object sender, EventArgs e)
+        {
+            /* feat<lophoc>: CRUD lophoc is out of scope
+            txtSearch.Clear();
+            pagination.CurrentPage = 1;
+            LoadData();
+            */
         }
 
         private void btnViewStudents_Click(object sender, EventArgs e)
         {
-            // Empty click handler
+            /* feat<lophoc>: view list sinhvien is out of scope
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Vui lòng chọn một lớp học để xem danh sách sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int classroomId = int.Parse(txtId.Text);
+
+            using (ClassroomStudentsForm modal = new ClassroomStudentsForm(classroomId))
+            {
+                modal.ShowDialog(this);
+            }
+            */
         }
 
         private void dgvClassrooms_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Empty click handler
-        }
-
-        private void dgvClassrooms_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Kiểm tra dòng click hợp lệ
+            /* feat<lophoc>: CRUD lophoc is out of scope
+            // Kiểm tra dòng click hợp lệfeat<sinhvien>: DataGridView CellClickEvent
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvClassrooms.Rows[e.RowIndex];
@@ -307,6 +361,12 @@ namespace QL_SinhVIen.Views
                 txtClassName.Text = row.Cells[2].Value?.ToString();
                 txtNotes.Text = row.Cells[3].Value?.ToString();
             }
+            */
+        }
+
+        private void dgvClassrooms_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Empty content click handler
         }
     }
 }

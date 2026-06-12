@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLSV" Class="QLSinhVienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+<?xml version="1.0" encoding="utf-8"?><Database Name="QLSV" Class="QLSinhVienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-CHU10SD\MSSQLSERVER01;Initial Catalog=QLSV;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="QL_SinhVIen.Properties.Settings" SettingsPropertyName="QLSVConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Classrooms" Member="Classrooms">
     <Type Name="Classroom">
@@ -6,6 +6,7 @@
       <Column Name="ClassCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ClassName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Classroom_Student" Member="Students" ThisKey="Id" OtherKey="ClassId" Type="Student" />
     </Type>
   </Table>
@@ -18,6 +19,7 @@
       <Column Name="Gender" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="ClassId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Classroom_Student" Member="Classroom" ThisKey="ClassId" OtherKey="Id" Type="Classroom" IsForeignKey="true" />
     </Type>
   </Table>

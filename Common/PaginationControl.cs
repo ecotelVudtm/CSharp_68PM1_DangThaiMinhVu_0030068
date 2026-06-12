@@ -57,7 +57,7 @@ namespace QL_SinhVIen.Common
                 TextAlign = ContentAlignment.MiddleCenter,
                 Width = 200,
                 Dock = DockStyle.Fill,
-                Font = StyleHelper.DefaultFont,
+                Font = new Font("Segoe UI", 10F, FontStyle.Regular),
                 Text = "Trang 1/1 | 0 bản ghi"
             };
 
@@ -90,7 +90,7 @@ namespace QL_SinhVIen.Common
                 Text = text,
                 Width = 45,
                 FlatStyle = FlatStyle.Flat,
-                Font = StyleHelper.ButtonFont,
+                Font = new Font("Segoe UI", 10F, FontStyle.Bold),
                 BackColor = Color.White
             };
         }
